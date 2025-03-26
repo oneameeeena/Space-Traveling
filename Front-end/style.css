@@ -1,0 +1,529 @@
+/* Base Styles */
+:root {
+    --primary: #0b3d91;
+    --secondary: #fc3d21;
+    --accent: #6dd5ed;
+    --dark: #0a0e2a;
+    --light: #e6f1ff;
+    --star-color: rgba(255, 255, 255, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    color: var(--light);
+    background-color: var(--dark);
+    overflow-x: hidden;
+    position: relative;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+}
+
+/* Space Background */
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -2;
+}
+
+.stars {
+    background: var(--dark) url('https://www.script-tutorials.com/demos/360/images/stars.png') repeat top center;
+}
+
+.twinkling {
+    background: transparent url('https://www.script-tutorials.com/demos/360/images/twinkling.png') repeat top center;
+    animation: twinkle 200s linear infinite;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+/* Header Styles */
+header {
+    padding: 1.5rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 61, 145, 0.2);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(109, 213, 237, 0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo span {
+    font-size: 2rem;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    background: linear-gradient(to right, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10%;
+    margin-top: -80px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, white, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(252, 61, 33, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(252, 61, 33, 0.6);
+}
+
+/* Rocket Animation */
+.rocket-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+
+.rocket {
+    position: absolute;
+    width: 80px;
+    height: 180px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.rocket-body {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to bottom, #ccc, #999);
+    border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+}
+
+.rocket-window {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #6dd5ed;
+    border-radius: 50%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 3px solid #0a0e2a;
+}
+
+.rocket-fins {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20%;
+}
+
+.rocket-fins::before, .rocket-fins::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 50px;
+    background: #fc3d21;
+    bottom: 0;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.rocket-fins::before {
+    left: -20px;
+    transform: rotate(30deg);
+}
+
+.rocket-fins::after {
+    right: -20px;
+    transform: rotate(-30deg);
+}
+
+.rocket-flames {
+    position: absolute;
+    width: 30px;
+    height: 80px;
+    background: linear-gradient(to top, #fc3d21, #f5af19);
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 50% 50%;
+    filter: blur(5px);
+    animation: flicker 0.5s infinite alternate;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes flicker {
+    0% { opacity: 1; height: 80px; }
+    100% { opacity: 0.8; height: 70px; }
+}
+
+/* Booking Form */
+.booking-form {
+    padding: 5rem 10%;
+    background: rgba(10, 14, 42, 0.8);
+    margin: 5rem 0;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.booking-form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(109, 213, 237, 0.1) 0%, transparent 70%);
+    z-index: -1;
+}
+
+.booking-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--accent);
+}
+
+input, select {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(109, 213, 237, 0.3);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(109, 213, 237, 0.5);
+}
+
+.submit-btn {
+    background: linear-gradient(45deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: 'Orbitron', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(109, 213, 237, 0.4);
+}
+
+/* Destinations Section */
+.destinations {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.destinations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.destination-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(109, 213, 237, 0.1);
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(109, 213, 237, 0.2);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+.iss-image {
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.moon-image {
+    background-image: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.mars-image {
+    background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+}
+
+.destination-card h3 {
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.destination-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dest-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+}
+
+.dest-btn:hover {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* Accommodations Section */
+.accommodations {
+    padding: 5rem 10%;
+    background: rgba(11, 61, 145, 0.1);
+    margin: 5rem 0;
+    text-align: center;
+}
+
+.accommodations h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.acc-slider {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    padding: 2rem 0;
+    scroll-snap-type: x mandatory;
+}
+
+.acc-card {
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    scroll-snap-align: start;
+    transition: transform 0.3s;
+}
+
+.acc-card:hover {
+    transform: scale(1.05);
+}
+
+.acc-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.acc-card p {
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+/* Dashboard Preview */
+.dashboard-preview {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+.dashboard-preview h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.dashboard-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(109, 213, 237, 0.1);
+}
+
+.upcoming-trip h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.countdown {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.trip-details p {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.manage-btn {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.manage-btn:hover {
+    background: var(--accent);
+    color: var(--dark);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(10, 14, 42, 0.8);
+    margin-top: 5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 5rem;
+    }
+    
+    .hero-content {
+        margin-bottom: 3rem;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+}

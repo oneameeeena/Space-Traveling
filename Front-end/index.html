@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubai to the Stars | Space Travel Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    
+    <header>
+        <nav>
+            <div class="logo">
+                <span>🚀</span>
+                <h1>Dubai to the Stars</h1>
+            </div>
+            <ul>
+                <li><a href="#book">Book Now</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#accommodations">Accommodations</a></li>
+                <li><a href="#dashboard">My Space Trips</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>The Future of Travel is Here</h2>
+                <p>Experience the ultimate adventure with commercial space travel from Dubai</p>
+                <button class="cta-button" id="bookNowBtn">Launch Your Journey</button>
+            </div>
+            <div class="rocket-container">
+                <div class="rocket" id="rocket">
+                    <div class="rocket-body"></div>
+                    <div class="rocket-window"></div>
+                    <div class="rocket-fins"></div>
+                    <div class="rocket-flames"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="booking-form" id="book">
+            <h2>Book Your Space Adventure</h2>
+            <form id="spaceBookingForm">
+                <div class="form-group">
+                    <label for="departure">Departure Date</label>
+                    <input type="date" id="departure" required>
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <select id="destination" required>
+                        <option value="">Select Destination</option>
+                        <option value="iss">International Space Station</option>
+                        <option value="moon">Lunar Gateway</option>
+                        <option value="mars">Mars Orbital Station</option>
+                        <option value="orbit">Zero-Gravity Experience (Orbit)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="seatClass">Seat Class</label>
+                    <select id="seatClass" required>
+                        <option value="">Select Class</option>
+                        <option value="economy">Economy Shuttle</option>
+                        <option value="business">Business Class</option>
+                        <option value="first">First Class</option>
+                        <option value="vip">VIP Zero-G Suite</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Check Availability</button>
+            </form>
+        </section>
+
+        <section class="destinations" id="destinations">
+            <h2>Explore Cosmic Destinations</h2>
+            <div class="destination-grid">
+                <div class="destination-card" data-dest="iss">
+                    <div class="card-image iss-image"></div>
+                    <h3>International Space Station</h3>
+                    <p>Experience life as an astronaut aboard the iconic ISS</p>
+                    <button class="dest-btn">Learn More</button>
+                </div>
+                <div class="destination-card" data-dest="moon">
+                    <div class="card-image moon-image"></div>
+                    <h3>Lunar Gateway</h3>
+                    <p>Our newest orbital hotel with breathtaking moon views</p>
+                    <button class="dest-btn">Learn More</button>
+                </div>
+                <div class="destination-card" data-dest="mars">
+                    <div class="card-image mars-image"></div>
+                    <h3>Mars Orbital Station</h3>
+                    <p>The ultimate adventure - orbit the Red Planet</p>
+                    <button class="dest-btn">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="accommodations" id="accommodations">
+            <h2>Space Accommodations</h2>
+            <div class="acc-slider">
+                <div class="acc-card">
+                    <h3>Zero-G Luxury Pods</h3>
+                    <p>Experience weightlessness in our premium pods</p>
+                    <div class="price">From $25,000/night</div>
+                </div>
+                <div class="acc-card">
+                    <h3>Lunar View Suites</h3>
+                    <p>Private suites with panoramic moon views</p>
+                    <div class="price">From $18,000/night</div>
+                </div>
+                <div class="acc-card">
+                    <h3>Standard Orbital Cabins</h3>
+                    <p>Comfortable accommodations for budget travelers</p>
+                    <div class="price">From $9,500/night</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard-preview" id="dashboard">
+            <h2>My Space Trips Dashboard</h2>
+            <div class="dashboard-card">
+                <div class="upcoming-trip">
+                    <h3>Upcoming Trip to ISS</h3>
+                    <div class="countdown">Launch in: <span id="countdown">14d 6h 23m</span></div>
+                    <div class="trip-details">
+                        <p><strong>Departure:</strong> June 15, 2024</p>
+                        <p><strong>Cabin:</strong> VIP Zero-G Suite</p>
+                        <button class="manage-btn">Manage Booking</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Dubai to the Stars - The Ultimate Space Travel Experience</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
